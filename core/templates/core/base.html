@@ -1,0 +1,96 @@
+<!-- core/templates/core/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polken Geocart Survey - Professional Surveying Services</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+     
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <strong class="text-primary">POLKEN</strong> GEOCART SURVEY
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#engineering">Engineering Surveys</a></li>
+                            <li><a class="dropdown-item" href="#cadastral">Cadastral Surveys</a></li>
+                            <li><a class="dropdown-item" href="#gis">GIS Services</a></li>
+                            <li><a class="dropdown-item" href="#mapping">Mapping Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipment">Equipment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        Swing House, Nairobi West<br>
+                        P.O. Box 3962-00506 NBI<br>
+                        Phone: +254722892690<br>
+                        Email: pgeocart@yahoo.com
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li>Engineering Surveys</li>
+                        <li>Cadastral Surveys</li>
+                        <li>GIS Services</li>
+                        <li>Mapping Services</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Company Information</h5>
+                    <ul class="list-unstyled">
+                        <li>Established: 1995</li>
+                        <li>Licensed Surveyors</li>
+                        <li>Professional Team</li>
+                        <li>Modern Equipment</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; {% now "Y" %} Polken Geocart Survey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
