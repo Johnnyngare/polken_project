@@ -1,24 +1,80 @@
-<!-- core/templates/core/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional surveying services in Kenya offering topographical, as-built, and industrial surveys. Expert team with over 25 years of experience in precision mapping and land development.">
+    <meta name="keywords" content="surveying, land survey, topographical survey, as-built survey, industrial survey, Kenya surveyor, Nairobi survey, GIS services, mapping services, LIDAR scanning">
+    <meta name="author" content="Polken Geocart Survey">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Polken Geocart Survey - Professional Surveying Services">
+    <meta property="og:description" content="Expert surveying services in Kenya with over 25 years of experience in precision mapping and land development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.co.ke">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="KE">
+    <meta name="geo.placename" content="Nairobi">
+    <link rel="canonical" href="https://your-domain.co.ke">
+    
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>Polken Geocart Survey - Professional Surveying Services</title>
+    
     {% load static %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Initial Debug Scripts -->
+    <script>
+        // Debug initialization
+        console.log('Debug mode enabled');
+        
+        // Monitor resource loading
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'VIDEO' || e.target.tagName === 'SOURCE') {
+                console.error('Video loading error:', e.target.src);
+            } else {
+                console.error('Resource loading error:', e);
+            }
+        }, true);
+        
+        // Check DOM loading state
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            console.log('Bootstrap version:', typeof bootstrap !== 'undefined' ? bootstrap.Modal.VERSION : 'not loaded');
+        });
+    </script>
 </head>
 <body>
+    <!-- JavaScript Warning -->
+    <noscript>
+        <div class="alert alert-warning text-center">
+            JavaScript is required for full functionality of this site.
+        </div>
+    </noscript>
+
     <!-- Navigation -->
-     
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <strong class="text-primary">POLKEN</strong> GEOCART SURVEY
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,8 +83,9 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
-                        <ul class="dropdown-menu">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="#engineering">Engineering Surveys</a></li>
                             <li><a class="dropdown-item" href="#cadastral">Cadastral Surveys</a></li>
                             <li><a class="dropdown-item" href="#gis">GIS Services</a></li>
@@ -49,11 +106,12 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     {% block content %}
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
@@ -61,17 +119,17 @@
                     <p>
                         Swing House, Nairobi West<br>
                         P.O. Box 3962-00506 NBI<br>
-                        Phone: +254722892690<br>
-                        Email: pgeocart@yahoo.com
+                        Phone: <a href="tel:+254722892690">+254722892690</a><br>
+                        Email: <a href="mailto:pgeocart@yahoo.com">pgeocart@yahoo.com</a>
                     </p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>Our Services</h5>
                     <ul class="list-unstyled">
-                        <li>Engineering Surveys</li>
-                        <li>Cadastral Surveys</li>
-                        <li>GIS Services</li>
-                        <li>Mapping Services</li>
+                        <li><a href="#engineering">Engineering Surveys</a></li>
+                        <li><a href="#cadastral">Cadastral Surveys</a></li>
+                        <li><a href="#gis">GIS Services</a></li>
+                        <li><a href="#mapping">Mapping Services</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -90,7 +148,30 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/main.js' %}?v={% now 'U' %}"></script>
+    
+    <!-- Final Debug Script -->
+    <script>
+        // Log successful script loading
+        console.log('All scripts loaded');
+        console.log('jQuery version:', jQuery.fn.jquery);
+        console.log('Bootstrap version:', bootstrap.Modal.VERSION);
+        
+        // Check for video support
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElement = document.createElement('video');
+            console.log('Browser video support:', {
+                mp4: videoElement.canPlayType('video/mp4'),
+                webm: videoElement.canPlayType('video/webm'),
+                ogg: videoElement.canPlayType('video/ogg')
+            });
+        });
+    </script>
 </body>
 </html>

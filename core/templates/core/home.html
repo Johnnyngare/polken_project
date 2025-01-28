@@ -4,112 +4,579 @@
 {% load static %}
 
 {% block content %}
-    <!-- Hero Section -->
-    <section class="hero d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 text-white mb-4">Professional Surveying Solutions</h1>
-                    <p class="lead text-white mb-4">Engineering Surveys | Cadastral Surveys | GIS Services</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="#contact" class="btn btn-primary btn-lg">Contact Us</a>
-                        <a href="#services" class="btn btn-outline-light btn-lg">Our Services</a>
-                    </div>
-                </div>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-background">
+        <div class="animated-grid"></div>
+        <div class="survey-points">
+            <div class="point point-1"></div>
+            <div class="point point-2"></div>
+            <div class="point point-3"></div>
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+        </div>
+    </div>
+
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h5 class="subtitle fade-in">Welcome to Polken Geocart Survey</h5>
+            <h1 class="title fade-in-delay-1">High-Precision Surveying Solutions</h1>
+            <p class="description fade-in-delay-2">Advanced technology for accurate measurements and detailed mapping</p>
+            <div class="hero-buttons fade-in-delay-3">
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
             </div>
         </div>
-    </section>
 
-   <!-- About Section -->
-<section id="about" class="py-5">
+        <div class="stats-container fade-in-delay-4">
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="counter" data-count="25">0</span><span>+</span>
+                </div>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="counter" data-count="500">0</span><span>+</span>
+                </div>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="counter" data-count="50">0</span><span>+</span>
+                </div>
+                <p>Team Members</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="counter" data-count="100">0</span><span>%</span>
+                </div>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll to explore</span>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section section-padding">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="display-4 mb-4">About Polken Geocart Survey</h2>
-                <p class="lead">Established in 1995, we provide comprehensive surveying and mapping services in Kenya and the region.</p>
-                <p class="mb-4">We serve corporate clients, government agencies, private businesses, and NGOs with our state-of-the-art equipment and experienced team of professionals.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h4>25+ Years Experience</h4>
-                            <p>Decades of successful project delivery</p>
+            <div class="col-lg-6">
+                <div class="about-content slide-right">
+                    <h1 class="section-subtitle">About Us</h1>
+                    <h2 class="section-title">Professional Surveying Excellence Since 1995</h2>
+                    <p class="lead">We provide comprehensive surveying and mapping services in Kenya and the region.</p>
+                    <p class="mb-4">Serving corporate clients, government agencies, private businesses, and NGOs with state-of-the-art equipment and experienced professionals.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item scroll-animate">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>25+ Years Experience</h4>
+                                <p>Decades of successful project delivery</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item scroll-animate">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Team</h4>
+                                <p>Professional licensed surveyors</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item scroll-animate">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Modern Equipment</h4>
+                                <p>State-of-the-art surveying tools</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- Add more feature items -->
                 </div>
             </div>
+            
             <div class="col-lg-6">
-                <div class="about-image">
-                    <img src="{% static 'images/projects/industrial-survey.jpg' %}" alt="Surveying Team" class="img-fluid">
+                <div class="about-image-wrapper slide-left">
+                    <img src="{% static 'images/team/team-main.jpg' %}" alt="Survey Team" class="img-fluid rounded img-main">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Services Section -->
-    <section id="services" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Services</h2>
-            
-            <!-- Engineering Surveys -->
-            <div id="engineering" class="mb-5">
-                <h3 class="mb-4">Engineering Surveys</h3>
+    
+<!-- Services Section -->
+<section id="services" class="services-section py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center">
+                <h2 class="section-title mb-3">Our Services</h2>
+                <p class="lead text-muted">Comprehensive surveying solutions for all your needs</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Topographical Surveys -->
+            <div class="col-md-4">
+                <div class="service-card fade-in-up">
+                    <div class="service-content text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h4 class="mb-3">Topographical Surveys</h4>
+                        <p>Complete topographical mapping for various projects and developments.</p>
+                        <button class="service-link mt-3" data-bs-toggle="modal" data-bs-target="#topoModal">
+                            Learn More 
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- As-Built Surveys -->
+            <div class="col-md-4">
+                <div class="service-card fade-in-up">
+                    <div class="service-content text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4 class="mb-3">As-Built Surveys</h4>
+                        <p>Precise documentation of completed construction and infrastructure.</p>
+                        <button class="service-link mt-3" data-bs-toggle="modal" data-bs-target="#asbuiltModal">
+                            Learn More 
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industrial Surveys -->
+            <div class="col-md-4">
+                <div class="service-card fade-in-up">
+                    <div class="service-content text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4 class="mb-3">Industrial Surveys</h4>
+                        <p>Specialized surveys for industrial facilities and installations.</p>
+                        <button class="service-link mt-3" data-bs-toggle="modal" data-bs-target="#industrialModal">
+                            Learn More 
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Service Modals -->
+<!-- Topographical Survey Modal -->
+<div class="modal fade" id="topoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Topographical Surveys</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                            <!-- Background -->
+                            <rect width="800" height="600" fill="#f8f9fa"/>
+                            
+                            <!-- Contour Lines -->
+                            <path d="M50,300 Q200,250 400,300 T750,280" fill="none" stroke="#666" stroke-width="1"/>
+                            <path d="M50,350 Q200,300 400,350 T750,330" fill="none" stroke="#666" stroke-width="1"/>
+                            <path d="M50,400 Q200,350 400,400 T750,380" fill="none" stroke="#666" stroke-width="1"/>
+                            
+                            <!-- Elevation Points -->
+                            <circle cx="200" cy="250" r="3" fill="red"/>
+                            <text x="210" y="245" font-size="12">245m</text>
+                            <circle cx="400" cy="300" r="3" fill="red"/>
+                            <text x="410" y="295" font-size="12">250m</text>
+                            <circle cx="600" cy="280" r="3" fill="red"/>
+                            <text x="610" y="275" font-size="12">248m</text>
+                            
+                            <!-- Terrain Features -->
+                            <path d="M100,200 L150,150 L200,200 Z" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1"/>
+                            <path d="M500,180 L550,130 L600,180 Z" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1"/>
+                            
+                            <!-- Grid Lines -->
+                            <g stroke="#ccc" stroke-width="0.5">
+                                <line x1="0" y1="100" x2="800" y2="100"/>
+                                <line x1="0" y1="200" x2="800" y2="200"/>
+                                <line x1="0" y1="300" x2="800" y2="300"/>
+                                <line x1="0" y1="400" x2="800" y2="400"/>
+                                <line x1="0" y1="500" x2="800" y2="500"/>
+                                <line x1="100" y1="0" x2="100" y2="600"/>
+                                <line x1="200" y1="0" x2="200" y2="600"/>
+                                <line x1="300" y1="0" x2="300" y2="600"/>
+                                <line x1="400" y1="0" x2="400" y2="600"/>
+                                <line x1="500" y1="0" x2="500" y2="600"/>
+                                <line x1="600" y1="0" x2="600" y2="600"/>
+                                <line x1="700" y1="0" x2="700" y2="600"/>
+                            </g>
+                            
+                            <!-- Legend -->
+                            <rect x="600" y="500" width="150" height="80" fill="white" stroke="#333" stroke-width="1"/>
+                            <circle cx="620" cy="520" r="3" fill="red"/>
+                            <text x="635" y="525" font-size="12">Elevation Point</text>
+                            <line x1="620" y1="540" x2="650" y2="540" stroke="#666" stroke-width="1"/>
+                            <text x="635" y="555" font-size="12">Contour Line</text>
+                            <path d="M620,560 L630,550 L640,560" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1"/>
+                            <text x="635" y="575" font-size="12">Vegetation</text>
+                        </svg>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Complete Mapping Solutions</h4>
+                        <p class="lead">Precision mapping for all types of terrain and development projects.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle text-primary"></i> High-precision 3D terrain modeling</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Detailed contour mapping</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Land development planning</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Volumetric calculations</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Topographical Surveys</h4>
-                                <p class="card-text">Complete topographical mapping for various projects and developments.</p>
-                            </div>
+                        <div class="feature-box">
+                            <i class="fas fa-mountain text-primary mb-3"></i>
+                            <h5>Terrain Analysis</h5>
+                            <p>Comprehensive terrain analysis for development planning.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">As-Built Surveys</h4>
-                                <p class="card-text">Precise documentation of completed construction and infrastructure.</p>
-                            </div>
+                        <div class="feature-box">
+                            <i class="fas fa-layer-group text-primary mb-3"></i>
+                            <h5>3D Modeling</h5>
+                            <p>Advanced 3D terrain modeling for visualization.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Industrial Surveys</h4>
-                                <p class="card-text">Specialized surveys for industrial facilities and installations.</p>
+                        <div class="feature-box">
+                            <i class="fas fa-drafting-compass text-primary mb-3"></i>
+                            <h5>Precision Mapping</h5>
+                            <p>High-precision mapping for development projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Request Service</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- As-Built Survey Modal -->
+<div class="modal fade" id="asbuiltModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">As-Built Surveys</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                            <!-- Background -->
+                            <rect width="800" height="600" fill="#f8f9fa"/>
+                            
+                            <!-- Building Outline -->
+                            <rect x="200" y="150" width="400" height="300" fill="none" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Interior Walls -->
+                            <line x1="400" y1="150" x2="400" y2="450" stroke="#333" stroke-width="1"/>
+                            <line x1="200" y1="300" x2="600" y2="300" stroke="#333" stroke-width="1"/>
+                            
+                            <!-- Dimensions -->
+                            <line x1="150" y1="150" x2="150" y2="450" stroke="#0066cc" stroke-width="1"/>
+                            <text x="120" y="300" font-size="12" fill="#0066cc" transform="rotate(-90 120,300)">30.0m</text>
+                            <line x1="200" y1="500" x2="600" y2="500" stroke="#0066cc" stroke-width="1"/>
+                            <text x="380" y="520" font-size="12" fill="#0066cc">40.0m</text>
+                            
+                            <!-- Survey Points -->
+                            <circle cx="200" cy="150" r="3" fill="red"/>
+                            <circle cx="600" cy="150" r="3" fill="red"/>
+                            <circle cx="200" cy="450" r="3" fill="red"/>
+                            <circle cx="600" cy="450" r="3" fill="red"/>
+                            
+                            <!-- Room Labels -->
+                            <text x="290" y="250" font-size="14">Room A</text>
+                            <text x="490" y="250" font-size="14">Room B</text>
+                            <text x="290" y="400" font-size="14">Room C</text>
+                            <text x="490" y="400" font-size="14">Room D</text>
+                            
+                            <!-- Legend -->
+                            <rect x="600" y="500" width="150" height="80" fill="white" stroke="#333" stroke-width="1"/>
+                            <circle cx="620" cy="520" r="3" fill="red"/>
+                            <text x="635" y="525" font-size="12">Survey Point</text>
+                            <line x1="620" y1="540" x2="650" y2="540" stroke="#333" stroke-width="2"/>
+                            <text x="635" y="555" font-size="12">Wall</text>
+                            <line x1="620" y1="560" x2="650" y2="560" stroke="#0066cc" stroke-width="1"/>
+                            <text x="635" y="575" font-size="12">Dimension</text>
+                        </svg>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Comprehensive As-Built Documentation</h4>
+                        <p class="lead">Precise documentation and verification of completed construction projects.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle text-primary"></i> Building measurement surveys</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Infrastructure documentation</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Construction verification</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Digital 3D modeling</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-building text-primary mb-3"></i>
+                            <h5>Building Documentation</h5>
+                            <p>Comprehensive documentation of existing structures with precise measurements.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-ruler-combined text-primary mb-3"></i>
+                            <h5>Compliance Verification</h5>
+                            <p>Conducting topographical surveys, as-built verification, and quality control using SLAM LIDAR technology and high-precision surveying tools for accurate construction documentation.</p>                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-cubes text-primary mb-3"></i>
+                            <h5>3D Modeling</h5>
+                            <p>Detailed 3D models of existing structures for planning and documentation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Request Service</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Industrial Survey Modal -->
+<div class="modal fade" id="industrialModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Industrial Surveys</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+                            <!-- Background -->
+                            <rect width="800" height="600" fill="#f8f9fa"/>
+                            
+                            <!-- Factory Floor -->
+                            <rect x="100" y="100" width="600" height="400" fill="none" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Equipment -->
+                            <rect x="150" y="150" width="100" height="150" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+                            <rect x="350" y="150" width="120" height="80" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+                            <rect x="550" y="150" width="100" height="100" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+                            
+                            <!-- Safety Zones -->
+                            <rect x="140" y="140" width="120" height="170" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="5,5"/>
+                            <rect x="340" y="140" width="140" height="100" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="5,5"/>
+                            <rect x="540" y="140" width="120" height="120" fill="none" stroke="#f44336" stroke-width="1" stroke-dasharray="5,5"/>
+                            
+                            <!-- Measurement Points -->
+                            <circle cx="150" cy="150" r="3" fill="red"/>
+                            <circle cx="250" cy="300" r="3" fill="red"/>
+                            <circle cx="350" cy="150" r="3" fill="red"/>
+                            <circle cx="470" cy="230" r="3" fill="red"/>
+                            <circle cx="550" cy="150" r="3" fill="red"/>
+                            <circle cx="650" cy="250" r="3" fill="red"/>
+                            
+                            <!-- Flow Arrows -->
+                            <path d="M250,200 L350,200" fill="none" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path d="M470,190 L550,190" fill="none" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)"/>
+                            
+                            <!-- Arrow Marker -->
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                                    markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4caf50"/>
+                                </marker>
+                            </defs>
+                            
+                            <!-- Legend -->
+                            <rect x="600" y="500" width="150" height="100" fill="white" stroke="#333" stroke-width="1"/>
+                            <rect x="620" y="515" width="20" height="20" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+                            <text x="650" y="530" font-size="12">Equipment</text>
+                            <line x1="620" y1="545" x2="640" y2="545" stroke="#f44336" stroke-width="1" stroke-dasharray="5,5"/>
+                            <text x="650" y="550" font-size="12">Safety Zone</text>
+                            <circle cx="620" cy="565" r="3" fill="red"/>
+                            <text x="650" y="570" font-size="12">Survey Point</text>
+                            <line x1="620" y1="585" x2="640" y2="585" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)"/>
+                            <text x="650" y="590" font-size="12">Flow</text>
+                        </svg>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Specialized Industrial Solutions</h4>
+                        <p class="lead">Expert surveying services for industrial facilities and installations.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle text-primary"></i> Plant layout surveys</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Equipment positioning</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Facility mapping</li>
+                            <li><i class="fas fa-check-circle text-primary"></i> Safety compliance surveys</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-industry text-primary mb-3"></i>
+                            <h5>Facility Mapping</h5>
+                            <p>Comprehensive mapping of industrial facilities and infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-cogs text-primary mb-3"></i>
+                            <h5>Equipment Layout</h5>
+                            <p>Precise equipment positioning and installation planning.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-hard-hat text-primary mb-3"></i>
+                            <h5>Safety Compliance</h5>
+                            <p>Ensuring facilities meet safety regulations and standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Request Service</a>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Equipment Section -->
+<section id="equipment" class="equipment-section section-padding">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center mb-5">
+            <span class="subtitle wow fadeIn">Advanced Technology</span>
+            <h2 class="section-title wow fadeInUp">State-of-the-Art Equipment</h2>
+            <p class="section-description lead wow fadeInUp">Equipped with the latest surveying technology for precise results</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Survey Equipment Column -->
+            <div class="col-lg-6">
+                <div class="equipment-card wow fadeInLeft">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="equipment-title">Survey Equipment</h3>
+                    </div>
+                    <div class="equipment-list">
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-broadcast-tower"></i>  
+                            </div>
+                            <div class="item-details">
+                                <h4>SLAM LIDAR - GOSLAM</h4>
+                                <p>High-precision 3D scanning technology</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <div class="item-details">
+                                <h4>LEICA 1230 GNSS</h4>
+                                <p>Advanced GPS positioning system</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <div class="item-details">
+                                <h4>Topcon GR3 Systems</h4>
+                                <p>Professional-grade surveying equipment</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- More service sections... -->
-            
-            <!-- Equipment Section -->
-            <section id="equipment" class="py-5">
-                <div class="container">
-                    <h2 class="text-center mb-5">Our Equipment</h2>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h3>Survey Equipment</h3>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-tools me-2"></i>SLAM LIDAR - GOSLAM</li>
-                                <li><i class="fas fa-satellite me-2"></i>LEICA 1230 GNSS</li>
-                                <li><i class="fas fa-compass me-2"></i>Topcon GR3 Systems</li>
-                            </ul>
+            <!-- Software Solutions Column -->
+            <div class="col-lg-6">
+                <div class="equipment-card wow fadeInRight">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-desktop"></i>
                         </div>
-                        <div class="col-lg-6">
-                            <h3>Software Solutions</h3>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-desktop me-2"></i>AutoCAD Civil 3D</li>
-                                <li><i class="fas fa-map me-2"></i>ArcGIS ArcMap 11.1</li>
-                                <li><i class="fas fa-globe me-2"></i>Global Mapper</li>
-                            </ul>
+                        <h3 class="equipment-title">Software Solutions</h3>
+                    </div>
+                    <div class="equipment-list">
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="item-details">
+                                <h4>AutoCAD Civil 3D</h4>
+                                <p>Professional civil engineering design software</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="item-details">
+                                <h4>ArcGIS ArcMap 11.1</h4>
+                                <p>Advanced mapping and spatial analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="equipment-item">
+                            <div class="item-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="item-details">
+                                <h4>Global Mapper</h4>
+                                <p>Comprehensive GIS data processing</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</section>
 
             <!-- Replace the existing Projects Section with this code -->
 <!-- Projects Section -->
@@ -136,11 +603,12 @@
             <div class="col-md-6 col-lg-4 project-item" data-category="wildlife">
                 <div class="card project-card h-100">
                     <img src="{% static 'images/projects/survey-widlife.jpg' %}" 
+                    loading="lazy" 
                          class="card-img-top" 
                          alt="Wildlife Survey"
                          style="height: 250px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">Wildlife Area Survey</h5>
+                        <h5 class="card-title">Topographical Area Survey</h5>
                         <p class="card-text">Topographical mapping in conservation areas with GPS technology.</p>
                     </div>
                 </div>
@@ -193,72 +661,108 @@
 
             
 <!-- Team Section -->
-<section id="team" class="py-5 bg-light">
+<section id="team" class="team-section section-padding">
     <div class="container">
-        <h2 class="text-center mb-5">Our Professional Team</h2>
-        <div class="row align-items-center">
-            <!-- Team Images -->
-            <div class="col-lg-6 mb-4">
-                <div class="team-gallery">
-                    <div class="main-image mb-4">
+        <!-- Section Header -->
+        <div class="section-header text-center mb-5">
+            <span class="subtitle">Meet Our Experts</span>
+            <h2 class="section-title">Our Professional Team</h2>
+            <p class="section-description lead">Expert surveyors equipped with state-of-the-art technology</p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="row g-4">
+            <!-- Team Showcase -->
+            <div class="col-lg-6">
+                <div class="team-showcase">
+                    <!-- Main Image with Caption -->
+                    <div class="team-image-primary mb-4" data-aos="fade-right">
                         <img src="{% static 'images/projects/community-survey.jpg' %}" 
-                             alt="Community Survey" 
-                             class="img-fluid rounded shadow-lg">
-                        <div class="image-caption">Community Project Survey</div>
+                             alt="Survey Team at Work" 
+                             class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <span>Community Project Survey</span>
+                        </div>
                     </div>
-                    <div class="secondary-image">
+                    <!-- Secondary Image -->
+                    <div class="team-image-secondary" data-aos="fade-up">
                         <img src="{% static 'images/projects/industrial-survey.jpg' %}" 
                              alt="Industrial Survey" 
-                             class="img-fluid rounded shadow-lg">
-                        <div class="image-caption">Industrial Site Survey</div>
+                             class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <span>Industrial Site Survey</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Team Info -->
             <div class="col-lg-6">
-                <h3 class="mb-4">Experienced Survey Professionals</h3>
-                <p class="lead mb-4">Our team comprises experienced specialists equipped with state-of-the-art surveying equipment.</p>
-                
-                <!-- Team Highlights -->
-                <div class="team-highlights mb-4">
-                    <div class="highlight-item">
-                        <i class="fas fa-hard-hat text-primary me-2"></i>
-                        <span>Safety-First Approach</span>
+                <div class="team-info ps-lg-4">
+                    <h3 class="mb-4">Experienced Survey Professionals</h3>
+                    <p class="lead mb-4">Our team comprises experienced specialists dedicated to providing precise and reliable surveying solutions.</p>
+                    
+                    <!-- Team Highlights -->
+                    <div class="team-highlights mb-5">
+                        <div class="highlight-card" data-aos="fade-left" data-aos-delay="100">
+                            <div class="highlight-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Safety-First Approach</h4>
+                                <p>Ensuring safety in all operations</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card" data-aos="fade-left" data-aos-delay="200">
+                            <div class="highlight-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Modern Equipment</h4>
+                                <p>Using latest surveying technology</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card" data-aos="fade-left" data-aos-delay="300">
+                            <div class="highlight-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Licensed Professionals</h4>
+                                <p>Certified and experienced team</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-tools text-primary me-2"></i>
-                        <span>Modern Equipment</span>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-certificate text-primary me-2"></i>
-                        <span>Licensed Surveyors</span>
-                    </div>
-                </div>
 
-                <!-- Team Members -->
-                <div class="team-members">
-                    <h4 class="mb-3">Key Team Members:</h4>
-                    <div class="member-list">
-                        <div class="member-item">
-                            <i class="fas fa-user-tie text-primary me-2"></i>
-                            <div>
-                                <h5>Peter G. Ndirangu</h5>
-                                <p>Principal Surveyor (MSc. Surveying)</p>
+                    <!-- Team Members -->
+                    <div class="team-members">
+                        <h4 class="mb-4">Key Team Members</h4>
+                        <div class="member-cards">
+                            <div class="member-card" data-aos="fade-up">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h5>Peter G. Ndirangu</h5>
+                                    <span>Principal Surveyor (MSc. Surveying)</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="member-item">
-                            <i class="fas fa-user-tie text-primary me-2"></i>
-                            <div>
-                                <h5>Eliud N. Munene</h5>
-                                <p>Licensed Surveyor (MSc. Surveying)</p>
+                            <div class="member-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h5>Eliud N. Munene</h5>
+                                    <span>Licensed Surveyor (MSc. Surveying)</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="member-item">
-                            <i class="fas fa-user text-primary me-2"></i>
-                            <div>
-                                <h5>Ruth Kinyanjui</h5>
-                                <p>Senior Surveyor (BSc Surveying)</p>
+                            <div class="member-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h5>Ruth Kinyanjui</h5>
+                                    <span>Senior Surveyor (BSc Surveying)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,45 +771,108 @@
         </div>
     </div>
 </section>
+
+
+
+        <section id="video-gallery" class="video-gallery-section section-padding">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <span class="subtitle">Video Gallery</span>
+                    <h2 class="section-title">Project Showcases</h2>
+                    <p class="section-description">Experience our surveying projects through detailed video demonstrations</p>
+                </div>
+<!-- Video Modals -->
+<!-- Baringo Modal -->
+<!-- Example for one video modal -->
+<!-- Baringo Modal -->
+<section id="video-gallery" class="video-gallery-section section-padding">
+   <div class="container">
+       <div class="video-container">
+           <div class="video-item">
+               <video id="sequential-video" autoplay muted playsinline>
+                   <source src="{% url 'stream_video' 'Baringo-gorge-web.mp4' %}" data-title="Baringo Gorge Survey" data-description="Topographical survey and terrain mapping" type="video/mp4">
+                   <source src="{% url 'stream_video' 'KR-Golf1-web.mp4' %}" data-title="KR Golf Course Survey" data-description="Professional golf course mapping and analysis" type="video/mp4">
+                   <source src="{% url 'stream_video' 'KR-Golf-Railwayline-web.mp4' %}" data-title="Railway Line Survey" data-description="Infrastructure mapping and alignment" type="video/mp4">
+                   <source src="{% url 'stream_video' 'Savanna-Silos-web.mp4' %}" data-title="Cement Silos Survey" data-description="Industrial facility mapping and assessment" type="video/mp4"> 
+                   <source src="{% url 'stream_video' 'Tmall.mp4' %}" data-title="TMall Survey" data-description="Commercial property survey and planning" type="video/mp4">
+               </video>
+               <div class="video-overlay">
+                   <h3 id="video-title"></h3>
+                   <p id="video-description"></p>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
             <!-- Contact Section -->
-            <section id="contact" class="py-5 bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h2 class="mb-4">Contact Us</h2>
-                            <form method="post">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit" class="btn btn-primary">Send Message</button>
-                            </form>
+<section id="contact" class="contact-section section-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="subtitle">Get In Touch</span>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-description">Reach out to us for professional surveying services</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-6">
+                <div class="contact-form-card">
+                    <form method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Your Name">
                         </div>
-                        <div class="col-lg-6">
-                            <h2 class="mb-4">Our Office</h2>
-                            <div class="d-flex mb-3">
-                                <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5>Address</h5>
-                                    <p>Swing House, Nairobi West<br>P.O. Box 3962-00506 NBI</p>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-3">
-                                <i class="fas fa-phone fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5>Phone</h5>
-                                    <p>+254722892690</p>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <i class="fas fa-envelope fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5>Email</h5>
-                                    <p>pgeocart@yahoo.com</p>
-                                </div>
-                            </div>
+                        <div class="form-group mb-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-6">
+                <div class="contact-info-card">
+                    <h3 class="mb-4">Our Office</h3>
+                    
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Address</h4>
+                            <p>Swing House, Nairobi West<br>P.O. Box 3962-00506 NBI</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+254722892690">+254722892690</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p><a href="mailto:pgeocart@yahoo.com">pgeocart@yahoo.com</a></p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

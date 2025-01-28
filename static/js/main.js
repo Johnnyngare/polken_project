@@ -1,22 +1,42 @@
-// main.js
+// Debug logging
+console.log('Main.js loaded');
+
+// Animation options for observers
+const animationOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+};
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initNavbar();
-    initSmoothScroll();
-    initScrollAnimations();
-    initProjectFilters();
-    initImageGallery();
-    initCounters();
-    initContactForm();
+    try {
+        console.log('DOM Content Loaded');
+        // Add a small delay to ensure elements are rendered
+        setTimeout(() => {
+            initNavbar();
+            initSmoothScroll();
+            initCounters();
+            initScrollAnimations();
+            initProjectFilters();
+            initVideoGallery();
+            initContactForm();
+            initHeroAnimations();
+            initParallaxEffects();
+            initAboutSection();
+        }, 100);
+    } catch (error) {
+        console.error('Initialization error:', error);
+    }
 });
 
 // Navbar functionality
 function initNavbar() {
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 50;
+    if (!navbar) return;
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > scrollThreshold) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -40,146 +60,179 @@ function initSmoothScroll() {
     });
 }
 
+// Counter animations
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    console.log('Found counters:', counters.length);
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        let current = 0;
+        
+        const updateCounter = () => {
+            const increment = target / 50;
+            if (current < target) {
+                current += increment;
+                counter.textContent = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                counter.textContent = '0';
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(counter);
+            }
+        }, { threshold: 0.5 });
+        
+        observer.observe(counter);
+    });
+}
+
 // Scroll animations
 function initScrollAnimations() {
-    const fadeElems = document.querySelectorAll('.fade-in');
-    const observerOptions = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: '0px'
-    };
+    if (!('IntersectionObserver' in window)) {
+        console.warn('IntersectionObserver not supported');
+        return;
+    }
 
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                fadeObserver.unobserve(entry.target);
+                if (!entry.target.hasAttribute('data-no-unobserve')) {
+                    fadeObserver.unobserve(entry.target);
+                }
             }
         });
-    }, observerOptions);
+    }, animationOptions);
 
-    fadeElems.forEach(elem => fadeObserver.observe(elem));
+    document.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right, .scale-in, .fade-in-up')
+        .forEach(elem => fadeObserver.observe(elem));
 }
 
 // Project filtering
-// Update the project filter function in main.js
 function initProjectFilters() {
     const filterButtons = document.querySelectorAll('.projects-filter button');
     const projectItems = document.querySelectorAll('.project-item');
 
     filterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
             
-            // Remove active class from all buttons
             filterButtons.forEach(btn => {
-                btn.classList.remove('btn-primary');
+                btn.classList.remove('btn-primary', 'active');
                 btn.classList.add('btn-outline-primary');
             });
             
-            // Add active class to clicked button
-            button.classList.remove('btn-outline-primary');
-            button.classList.add('btn-primary');
-            
-            const filter = button.getAttribute('data-filter');
+            this.classList.add('btn-primary', 'active');
+            this.classList.remove('btn-outline-primary');
             
             projectItems.forEach(item => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
                     item.style.display = 'block';
-                    setTimeout(() => item.style.opacity = '1', 50);
                 } else {
-                    item.style.opacity = '0';
-                    setTimeout(() => item.style.display = 'none', 300);
+                    item.style.display = 'none';
                 }
             });
         });
     });
 }
 
-// Image gallery
-function initImageGallery() {
-    const galleryItems = document.querySelectorAll('.project-card .card-img-wrapper');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const imgSrc = this.querySelector('img').src;
-            const title = this.closest('.project-card').querySelector('.card-title').textContent;
-            
-            showImageModal(imgSrc, title);
-        });
-    });
-}
-
-function showImageModal(imgSrc, title) {
-    const modal = document.createElement('div');
-    modal.className = 'image-modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <img src="${imgSrc}" alt="${title}">
-            <h3>${title}</h3>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    
-    modal.querySelector('.close-modal').onclick = () => {
-        modal.remove();
-    };
-    
-    modal.onclick = (e) => {
-        if (e.target === modal) modal.remove();
-    };
-}
-
-// Counter animations
-function initCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const increment = target / speed;
-
-        function updateCounter() {
-            const count = +counter.innerText;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCounter, 1);
-            } else {
-                counter.innerText = target;
-            }
+// Video Gallery Handling
+function initVideoGallery() {
+    const video = document.getElementById('sequential-video');
+    const titleEl = document.getElementById('video-title');
+    const descEl = document.getElementById('video-description');
+    let currentSource = 0;
+    const sources = Array.from(video.getElementsByTagName('source'));
+ 
+    // Preload video metadata
+    video.preload = "metadata";
+ 
+    // Lazy loading with Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            playVideo();
+            observer.unobserve(video);
         }
-
-        updateCounter();
+    }, {
+        threshold: 0.5
     });
-}
+ 
+    observer.observe(video);
+ 
+    function updateDescription() {
+        const source = sources[currentSource];
+        if (source) {
+            titleEl.textContent = source.dataset.title;
+            descEl.textContent = source.dataset.description;
+        }
+    }
+ 
+    async function playVideo() {
+        try {
+            // Cache video source
+            const currentVideoSrc = sources[currentSource].src;
+            video.src = currentVideoSrc;
+            
+            await video.load();
+            await video.play();
+            updateDescription();
+        } catch (error) {
+            console.error('Video playback error:', error);
+            // Try next video if current fails
+            currentSource = (currentSource + 1) % sources.length;
+            playVideo();
+        }
+    }
+ 
+    video.addEventListener('ended', async function() {
+        currentSource = (currentSource + 1) % sources.length;
+        await playVideo();
+    });
+ 
+    // Error handling
+    video.addEventListener('error', function(e) {
+        console.error('Video error:', e);
+        currentSource = (currentSource + 1) % sources.length;
+        playVideo();
+    });
+ 
+    // Memory cleanup
+    return () => {
+        observer.disconnect();
+        video.removeEventListener('ended', playVideo);
+        video.removeEventListener('error', playVideo);
+    };
+ }
 
-// Contact form validation
+// Contact Form Handling
 function initContactForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
-
-    form.addEventListener('submit', handleFormSubmit);
-}
-
-function handleFormSubmit(e) {
-    e.preventDefault();
     
-    const formData = {
-        name: this.querySelector('[name="name"]').value,
-        email: this.querySelector('[name="email"]').value,
-        message: this.querySelector('[name="message"]').value
-    };
-
-    const validation = validateFormData(formData);
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            name: this.querySelector('[name="name"]')?.value || '',
+            email: this.querySelector('[name="email"]')?.value || '',
+            message: this.querySelector('[name="message"]')?.value || ''
+        };
     
-    if (validation.isValid) {
-        showFormMessage(this, 'success', 'Message sent successfully!');
-        this.reset();
-    } else {
-        showFormMessage(this, 'error', validation.errors);
-    }
+        const validation = validateFormData(formData);
+        
+        if (validation.isValid) {
+            showFormMessage(this, 'success', 'Message sent successfully!');
+            this.reset();
+        } else {
+            showFormMessage(this, 'error', validation.errors);
+        }
+    });
 }
 
 function validateFormData(data) {
@@ -197,14 +250,66 @@ function validateFormData(data) {
 }
 
 function showFormMessage(form, type, message) {
-    const existingMessages = form.querySelectorAll('.alert');
-    existingMessages.forEach(msg => msg.remove());
+    form.querySelectorAll('.alert').forEach(msg => msg.remove());
 
     const messageDiv = document.createElement('div');
     messageDiv.className = `alert alert-${type === 'success' ? 'success' : 'danger'} mt-3`;
     messageDiv.innerHTML = Array.isArray(message) ? message.join('<br>') : message;
     
     form.appendChild(messageDiv);
-
     setTimeout(() => messageDiv.remove(), 5000);
+}
+
+// Hero Animations
+function initHeroAnimations() {
+    document.querySelectorAll('.animate-up').forEach((el, index) => {
+        el.style.cssText = 'opacity: 0; transform: translateY(30px);';
+        
+        setTimeout(() => {
+            el.style.transition = 'all 0.8s ease';
+            el.style.cssText = 'opacity: 1; transform: translateY(0);';
+        }, index * 200);
+    });
+}
+
+// Parallax Effects
+function initParallaxEffects() {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            element.style.transform = `translate3d(0, ${-(scrolled * speed)}px, 0)`;
+        });
+    });
+}
+
+// About Section Animation
+function initAboutSection() {
+    const aboutSection = document.querySelector('.about-section');
+    if (!aboutSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(aboutSection);
+}
+
+// Helper function to check viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }
